@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 显示 用户资料信息-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="#ffffff"
+    android:id="@+id/user_layout">
+    
+     <RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:layout_gravity="center_horizontal">
+	
+       <TextView
+           android:id="@+id/user"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/user"
+           android:layout_centerHorizontal="true" 
+           android:textColor="#000000"/>
+
+       <Button
+           android:id="@+id/button1"
+           style="?android:attr/buttonStyleSmall"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="修改"
+           android:layout_toRightOf="@id/user"
+           android:layout_marginLeft="20dip"
+           />
+
+</RelativeLayout>
+    <!-- name -->
+   <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:layout_gravity="center_horizontal">
+	
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/name" 
+           android:textColor="#000000"/>
+
+       <TextView
+           android:id="@+id/name"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="name" 
+           android:textColor="#000000"/>
+
+</LinearLayout>
+<!-- phone -->
+      <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+     <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/phone" 
+           android:textColor="#000000"/>
+
+       <TextView
+           android:id="@+id/phone"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="phone" 
+           android:textColor="#000000"/>
+
+</LinearLayout>
+<!-- address -->
+   <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+     <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/address" 
+           android:textColor="#000000"/>
+
+       <TextView
+           android:id="@+id/address"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="address" 
+           android:textColor="#000000"/>
+
+</LinearLayout>
+
+   <!--  -->
+</LinearLayout>

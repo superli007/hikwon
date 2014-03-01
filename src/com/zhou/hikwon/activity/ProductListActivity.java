@@ -24,7 +24,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.webkit.WebView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -46,7 +45,6 @@ public class ProductListActivity extends ListActivity {
 		private MyAdapter adapter = null;
 		private View returnTitle=null;
 		protected Menu myMenu;
-		private WebView webview;
 		public static Map<Integer, Boolean> isSelected;
     /** Called when the activity is first created. */
     @Override
@@ -64,12 +62,6 @@ public class ProductListActivity extends ListActivity {
     	setReturnImage();
     	TextView title=(TextView) findViewById(R.id.return_title);
     	title.setText("类别");
-    	
-    	 webview=(WebView) findViewById(R.id.WebView_product_list);
-    	Intent intent=getIntent();
-    	String address=intent.getStringExtra("address");
-    	webview.loadUrl(address);
-    	
     	ProductService productsv =new ProductService();
 		products=productsv.getAll();
 		lvProduct = getListView();
@@ -94,7 +86,12 @@ public class ProductListActivity extends ListActivity {
 			}});
 	}
     
-
+    @Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+		// TODO Auto-generated method stub
+		return super.onKeyDown(keyCode, event);
+	}
 
 	class MyAdapter extends BaseAdapter {
 		private Context context;
@@ -170,6 +167,7 @@ public class ProductListActivity extends ListActivity {
 						+ products.get(position).getName().toString());
 				holder.unitPrice.setText("RMB:"+String.valueOf(products.get(position)
 						.getUnitPrice()));
+				holder.unitPrice.setTextColor(Color.RED);
 				return convertView;
 			} else
 			{
@@ -194,22 +192,5 @@ public class ProductListActivity extends ListActivity {
 		intent.setClass(this, ProductActivity.class);
 		startActivity(intent);
 	}
-	/**
-     * 按键响应，在WebView中查看网页时，按返回键的时候按浏览历史退回,如果不做此项处理则整个WebView返回退出
-     */
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        // Check if the key event was the Back button and if there's history
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && webview.canGoBack())
-        {
-            // 返回键退回
-            webview.goBack();
-            return true;
-        }
-        // If it wasn't the Back key or there's no web page history, bubble up
-        // to the default
-        // system behavior (probably exit the activity)
-        return super.onKeyDown(keyCode, event);
-    }
+	
 }

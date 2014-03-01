@@ -57,6 +57,7 @@ public class ProductActivity extends Activity
 		nameTv.setText(product.getName());
 		photoIv.setImageResource(product.getPhoto());
 		priceTv.setText("RMB: "+String.valueOf(product.getUnitPrice())+" Ԫ");
+		priceTv.setTextColor(Color.RED);
 		typeTv.setText(product.getType());
 		overviewTv.setText(product.getOverview());
 	}
